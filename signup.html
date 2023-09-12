@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/signup.css" />
+    <title>SIGN UP PAGE</title>
+  </head>
+  <body>
+    <h1>Create Account</h1>
+    <div class="container">
+      <form id="formContainer" class="form-container">
+        <div class="form-details">
+          <input type="text" name="Name" id="Name" placeholder="Name" />
+        </div>
+        <div class="form-details">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email Address"
+          />
+        </div>
+        <div class="form-details">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="form-details">
+          <input
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+          />
+        </div>
+        <button type="submit" onclick="userData()">Sign up</button>
+        <p>Already have an account ? <a href="/signin.html">Login here •</a></p>
+      </form>
+    </div>
+    <script>
+      //Targeting the form by its id
+      let formData = document.getElementById("formContainer");
+      formData.addEventListener("click", userData);
+      function userData(e) {
+        e.preventDefault();
+        let usersName = document.getElementById("Name").value;
+        let usersEmail = document.getElementById("email").value;
+        let Password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+
+        // Collecting the details as object
+        const userDetails = {
+          usersName,
+          usersEmail,
+          Password,
+          confirmPassword,
+        };
+
+        // Saving the details collected to local storage
+        localStorage.setItem("database", JSON.stringify(userDetails));
+        let dataRetrieve = JSON.parse(localStorage.getItem("database"));
+      }
+    </script>
+  </body>
+</html>

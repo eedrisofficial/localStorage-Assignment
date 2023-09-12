@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/signup.css" />
+    <title>SIGN IN PAGE</title>
+  </head>
+  <body>
+    <h1>Welcome Account</h1>
+    <div class="container">
+      <form id="formContainer" class="form-container">
+        <div class="form-details">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email Address"
+          />
+        </div>
+        <div class="form-details">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+
+        <button type="submit" onclick="userData()">Login</button>
+        <p>Don't have an account ? <a href="/signup.html">Create here •</a></p>
+      </form>
+    </div>
+    <script>
+      //Targeting the form by its id
+      let formData = document.getElementById("formContainer");
+      formData.addEventListener("click", userData);
+      function userData(e) {
+        e.preventDefault();
+
+        let usersEmail = document.getElementById("email").value;
+        let Password = document.getElementById("password").value;
+
+        // Collecting the details as object
+        const userDetails = {
+          usersEmail,
+          Password,
+        };
+
+        // Saving the details collected to local storage
+        localStorage.setItem("database", JSON.stringify(userDetails));
+        let dataRetrieve = JSON.parse(localStorage.getItem("database"));
+      }
+    </script>
+  </body>
+</html>
