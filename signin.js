@@ -16,5 +16,5 @@ function userData(e) {
   // Saving the details collected to local storage
   localStorage.setItem("database", JSON.stringify(userDetails));
   let dataRetrieve = JSON.parse(localStorage.getItem("database"));
-  console.log(dataRetrieve);
+  window.location.href = "/index.html";
 }
