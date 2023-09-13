@@ -16,8 +16,6 @@ formData.addEventListener("submit", function (event) {
   ) {
     // Display an error message if any field is empty
     alert("Please fill in all fields.");
-  } else if (Password.length !== 6) {
-    alert("password must be more than 5 character");
   } else if (Password !== confirmPassword) {
     // Display an error message if passwords do not match
     alert("Passwords do not match.");

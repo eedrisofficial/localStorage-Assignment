@@ -10,8 +10,6 @@ formData.addEventListener("submit", function (event) {
   // validation
   if (usersEmail === "" || Password === "") {
     alert("please fill the input to continue");
-  } else if (Password.length !== 6) {
-    alert("password must be more than 5 character");
   } else {
     window.location.href = "/index.html";
   }
